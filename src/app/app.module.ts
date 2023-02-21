@@ -9,12 +9,16 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { MenuComponent } from './components/menu/menu.component';
+import { JsComponent } from './components/js/js.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddEmployeeComponent,
     ListEmployeeComponent,
     EditEmployeeComponent,
+    MenuComponent,
+    JsComponent,
    
   ],
   imports: [
