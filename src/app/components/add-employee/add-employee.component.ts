@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{FormGroup, FormBuilder} from '@angular/forms'
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -13,6 +14,7 @@ export class AddEmployeeComponent implements OnInit {
     public form:FormBuilder,
     private apiService:ApiService,
     private router: Router,
+   
     ){
     this.formEmployee=this.form.group({
       name:[''],
@@ -30,5 +32,6 @@ export class AddEmployeeComponent implements OnInit {
     );
     this.apiService.AddEmployeeComponent(this.formEmployee.value).subscribe();
     this.router.navigateByUrl('list-employee');
+  
   }
 }

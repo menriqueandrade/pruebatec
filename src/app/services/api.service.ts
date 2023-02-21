@@ -23,4 +23,11 @@ export class ApiService {
   deleteEmployee(id:any):Observable<any>{
     return this.clientHttp.get(this.API+"?borrar="+id)
   }
+
+  getEmployeeIdEdit(id:any):Observable<any>{
+    return this.clientHttp.get(this.API+"?consultar="+id)
+  }
+  editEmployee(id:any,dataEmployee:any):Observable<any>{
+    return this.clientHttp.post(this.API+"?actualizar="+id,dataEmployee)
+  }
 }
