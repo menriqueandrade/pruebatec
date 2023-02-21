@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header">
+        Header
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of Employee; let iControl=index">
+                        <td scope="row">{{employee.id}}</td>
+                        <td scope="row">{{employee.name}}</td>
+                        <td scope="row">{{employee.email}}</td>
+                        <td>
+                            <a routerLink="/edit-employee/{{employee.id}}" class="btn btn-info"> Editar </a> |
+                            <a class="btn btn-danger" (click)="deleteEmployee(employee.id, iControl)" role="button">Eliminar</a>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
