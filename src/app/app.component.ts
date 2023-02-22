@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pruebatec';
+  showNavbar = true;
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === '/menu') {
+          this.showNavbar = false;
+        } else {
+          this.showNavbar = true;
+        }
+      }
+    });
+  }
 }

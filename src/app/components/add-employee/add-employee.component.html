@@ -3,15 +3,15 @@
         Agregar Empleados
     </div>
     <div class="card-body">
-        <form [formGroup]="formEmployee" (ngSubmit)="sendData()">
+        <form ngNativeValidate [formGroup]="formEmployee" (ngSubmit)="sendData()">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="" formControlName="name" id="" aria-describedby="helpId"
+                <input required type="text" class="form-control" name="" formControlName="name" id="" aria-describedby="helpId"
                     placeholder="Escribe un nombre">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Correo</label>
-                <input type="email" class="form-control" name="" formControlName="email" id=""
+                <input required type="email" class="form-control" name="" formControlName="email" id=""
                     aria-describedby="emailHelpId" placeholder="abc@mail.com">
 
             </div>

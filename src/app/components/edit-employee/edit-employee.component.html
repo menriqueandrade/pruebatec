@@ -3,16 +3,16 @@
         Editar Empleado
     </div>
     <div class="card-body">
-        <form [formGroup]="formEmployeeEdit" (ngSubmit)="sendDataEdit()">
+        <form  ngNativeValidate [formGroup]="formEmployeeEdit" (ngSubmit)="sendDataEdit()">
             <div class="mb-3">
                 <label for="" class="form-label">Nombre</label>
-                <input type="text" class="form-control" formControlName="name" name="" id="" aria-describedby="helpId"
+                <input required type="text" class="form-control" formControlName="name" name="" id="" aria-describedby="helpId"
                     placeholder="Escribe un nombre">
 
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Correo</label>
-                <input type="email" class="form-control" formControlName="email" name="" id="" aria-describedby="emailHelpId"
+                <input required type="email" class="form-control" formControlName="email" name="" id="" aria-describedby="emailHelpId"
                     placeholder="abc@mail.com">
 
             </div>
