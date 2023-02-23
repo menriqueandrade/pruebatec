@@ -14,24 +14,38 @@ export class ListEmployeeComponent implements OnInit {
 
 
   ) { }
+
   ngOnInit(): void {
-    this.apiService.getEmployee().subscribe(response=>{
-      console.log(response);
-      this.Employee=response;
-    });
+    setTimeout(() => {
+      this.apiService.getEmployee().subscribe(response => {
+        console.log(response);
+        this.Employee = response;
+      });
+    },
+      500);
+
+    // if (this.apiService.banderita == false) {
+    //   this.apiService.getEmployee().subscribe(response => {
+
+    //     this.Employee = response;
+    //   });
+    // }
   }
-  deleteEmployee(id:any, iControl:any){
+  delay(ms: number) {
+    console.log(ms);
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  deleteEmployee(id: any, iControl: any) {
     console.log(id);
     console.log(iControl);
-    if(window.confirm("¿Esta seguro de borrar??")){
-      this.apiService.deleteEmployee(id).subscribe((response)=>{
+    if (window.confirm("¿Esta seguro de borrar??")) {
+      this.apiService.deleteEmployee(id).subscribe((response) => {
         console.log(response);
         //indice de control frame
-        this.Employee.splice(iControl,1)
+        this.Employee.splice(iControl, 1)
       });
     }
-   
   }
-  
+
 
 }

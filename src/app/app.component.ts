@@ -11,9 +11,11 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/menu') {
+        if (event.url === '/menu' || event.url === '/js') {
           this.showNavbar = false;
-        } else {
+        } 
+             
+        else {
           this.showNavbar = true;
         }
       }

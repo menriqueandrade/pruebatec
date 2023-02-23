@@ -6,28 +6,39 @@ import { Employee } from '../services/models/Employee';
   providedIn: 'root'
 })
 export class ApiService {
-  API: string ='http://localhost/employee/';
+  API: string = 'http://localhost/employee/';
+  banderita: boolean;
 
-  constructor(private clientHttp:HttpClient) { 
-    
+  constructor(private clientHttp: HttpClient
+
+  ) {
+    this.banderita = false;
+
   }
 
-  AddEmployeeComponent(dataEmployee:Employee):Observable<any>{
-    return this.clientHttp.post(this.API+"?insertar=1",dataEmployee)
+  AddEmployeeComponent(dataEmployee: Employee): Observable<any> {
+    return this.clientHttp.post(this.API + "?insertar=1", dataEmployee)
   }
 
-  getEmployee(){
+  getEmployee() {
+    //actualizado
+    this.banderita = true;
     return this.clientHttp.get(this.API)
   }
 
-  deleteEmployee(id:any):Observable<any>{
-    return this.clientHttp.get(this.API+"?borrar="+id)
+  deleteEmployee(id: any): Observable<any> {
+
+    return this.clientHttp.get(this.API + "?borrar=" + id)
   }
 
-  getEmployeeIdEdit(id:any):Observable<any>{
-    return this.clientHttp.get(this.API+"?consultar="+id)
+  getEmployeeIdEdit(id: any): Observable<any> {
+    return this.clientHttp.get(this.API + "?consultar=" + id)
   }
-  editEmployee(id:any,dataEmployee:any):Observable<any>{
-    return this.clientHttp.post(this.API+"?actualizar="+id,dataEmployee)
+  editEmployee(id: any, dataEmployee: any): Observable<any> {
+    this.banderita = false;
+     let edited= this.clientHttp.post(this.API + "?actualizar=" + id, dataEmployee)
+    this.getEmployee();
+     return edited;
+
   }
 }

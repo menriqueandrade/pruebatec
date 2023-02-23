@@ -7,7 +7,14 @@ import { ListEmployeeComponent } from './components/list-employee/list-employee.
 import { MenuComponent } from './components/menu/menu.component';
 
 
+
+
 const routes: Routes = [
+ 
+  {
+    path: '', pathMatch: 'full', redirectTo: 'menu',
+  },
+    
   {
     path: 'menu', pathMatch: 'full', redirectTo: 'menu',
 

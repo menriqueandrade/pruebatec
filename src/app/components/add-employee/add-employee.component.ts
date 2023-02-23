@@ -26,10 +26,7 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   sendData():any{
-    console.log("Me presionaste ahhhh");
-    console.log(
-      this.formEmployee.value
-    );
+    
     this.apiService.AddEmployeeComponent(this.formEmployee.value).subscribe();
     this.router.navigateByUrl('list-employee');
   
